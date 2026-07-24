@@ -61,6 +61,12 @@ MANIFEST = [
      "club-es-paradis", "Es Paradis"),
     ("https://www.clubtickets.com/clubbing/lio?aff=CT184",
      "club-lio-ibiza", "Lio Ibiza"),
+    ("https://www.clubtickets.com/clubbing/unvrs-ibiza/artcore?aff=CT184",
+     "unvrs-artcore", "UNVRS - Indira Paganotto presents ARTCORE"),
+    ("https://www.clubtickets.com/clubbing/unvrs-ibiza/no-art-ibiza?aff=CT184",
+     "unvrs-no-art-ibiza", "UNVRS - No Art Ibiza"),
+    ("https://www.clubtickets.com/clubbing/ushuaia-ibiza/hugel?aff=CT184",
+     "ushuaia-hugel", "Ushuaia Ibiza - Hugel presents Make the Girls Dance"),
 ]
 
 OG_IMAGE_RE = re.compile(
