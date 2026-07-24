@@ -1,0 +1,67 @@
+Club Ibiza Tickets - Items NOT added / not completed
+(No image, price or description could be fetched in this environment - nothing fake was inserted.)
+
+1) EXISTING cards that still need their own official photo
+   (currently show a neutral placeholder, not broken, not another event's photo)
+   - Hi Ibiza: Dom Dolla
+   - Ushuaia Ibiza: ANTS
+   - Ushuaia Ibiza: Calvin Harris
+   - Ushuaia Ibiza: Calvin Harris. (Fridays)
+   - Ushuaia Ibiza: F*** Me I'm Famous! by David Guetta
+   - Ushuaia Ibiza: Martin Garrix
+   - Ushuaia Ibiza: Ozuna
+   - Ushuaia Ibiza: Tomorrowland & Dimitri Vegas & Like Mike
+   - Club: Playa Soleil
+   - Club: Chinois Ibiza
+   - Club: Ibiza Rocks
+   - Club: Es Paradis
+   - Club: Lio Ibiza
+
+2) NEW events found in your master list but NOT added (missing official image)
+   - UNVRS: Indira Paganotto presents ARTCORE
+   - UNVRS: No Art Ibiza
+   - Ushuaia Ibiza: Hugel presents Make the Girls Dance
+
+3) NEW boat trips / Formentera crossings NOT added (missing image + price + description)
+   - Capitan Nemo: San Antonio to Es Vedra Boat Trip - Daytime
+   - Chilli Pepper Boats: Chilli Pepper Ibiza Boat
+   - Excursiones Ibiza: Excursion Es Vedra + Formentera
+   - Ibiza Cruise Crush: Cruise Crush Boat Party
+   - Lady Virginia Boat: Lady Virginia Boat Trip
+   - Pukka Up: A Day in Paradise Ibiza
+   - Pukka Up: Pukka Up x Belters Only present Waavy Boat Party
+   - Salvador: Salvador Day Boat Trip
+   - Salvador: Salvador Sunset Trip
+   - The Beach Hopper: Daytime
+   - The Beach Hopper: Sunset
+   - The Ibz Boat
+   - Balearia: Ibiza puerto - Formentera
+   - Cruceros Portmany: San Antonio - Formentera
+   - Santa Eularia Ferry: Formentera Experience by Santa Eularia Ferry
+   - Santa Eularia Ferry: Santa Eulalia - Formentera Ferry
+   - Santa Eularia Ferry: Shuttle Ferry Ibiza - Santa Eularia - Es Canar
+   - Ulises Cat - Sea Experience: Brunch on the Boat
+   - Ulises Cat - Sea Experience: Calas de Formentera Boat Trip
+   - Ulises Cat - Sea Experience: Crystal Waters Boat Trip
+   - Ulises Cat - Sea Experience: Ferry Figueretas & Playa d'en Bossa
+   - Ulises Cat - Sea Experience: San Antonio - Cala Salada Ferry Boat
+   - Ulises Cat - Sea Experience: Sunset Boat Excursion with DJ
+
+4) NEW activities NOT added (missing image + price + description)
+   - Blue Coral Ibiza: Jet Ski Tours with Blue Coral
+   - Emove Ibiza: Electric Motocross Tour
+   - Excursiones Al Sabini: Jeep Safari North Tour
+   - Ibiza Buggy Adventure: from San Antonio (Buggy)
+   - Ibiza Buggy Adventure: Quad from San Antonio
+   - Ibiza Jet Ski Beach: Jet Ski in San Antonio
+   - INTO THE ISLAND: 4x4 Safari Ibiza Tour
+   - INTO THE ISLAND: Boat, 4x4 & Es Vedra Sunset Adventure
+   - Jet Blast Ibiza: Jet Ski in San Antonio Bay
+   - SUP Paradise Ibiza: 2h Sunset Boat Trip with Paddle Surf Lesson
+   - SUP Paradise Ibiza: 3h Boat Trip with Paddle Surf Lesson - Snorkeling
+   - TAKE OFF: Cave and Beach Hopping Boat Tour
+   - TAKE OFF: Luxury Water Toys Boat Experience
+
+Everything else requested (image de-duplication, aff=CT184 audit, Drinks Packages
+buttons, sitemap.xml, robots.txt, favicon, "All dates" removal, UNVRS/About
+untouched) is already done in index.html.
