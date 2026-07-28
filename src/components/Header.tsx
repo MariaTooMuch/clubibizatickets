@@ -1,12 +1,14 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Logo } from "./Logo";
 import { primaryNav } from "@/lib/site";
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <header className="sticky top-0 z-40 border-b border-ink-100 bg-sand-50/90 backdrop-blur">
@@ -17,16 +19,24 @@ export function Header() {
 
         <nav aria-label="Primary" className="hidden lg:block">
           <ul className="flex items-center gap-8">
-            {primaryNav.map((item) => (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  className="font-sans text-sm uppercase tracking-wide text-ink-700 transition-colors hover:text-terracotta-700"
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
+            {primaryNav.map((item) => {
+              const isActive = pathname === item.href || pathname.startsWith(`${item.href}/`);
+              return (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    aria-current={isActive ? "page" : undefined}
+                    className={`border-b pb-1 font-sans text-sm uppercase tracking-wide transition-colors ${
+                      isActive
+                        ? "border-terracotta-600 text-ink-900"
+                        : "border-transparent text-ink-700 hover:border-terracotta-300 hover:text-terracotta-700"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </nav>
 

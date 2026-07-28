@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Vista } from "@/components/Vista";
 import { JsonLd } from "@/components/JsonLd";
+import { ArrowLink } from "@/components/ArrowLink";
 import { journalArticles } from "@/data";
 import { articleSchema, breadcrumbSchema } from "@/lib/structured-data";
 
@@ -53,9 +53,9 @@ export default async function JournalArticlePage({ params }: Props) {
           ))}
         </div>
         <div className="mt-16 border-t border-ink-100 pt-8">
-          <Link href="/journal" className="font-sans text-sm uppercase tracking-wide text-terracotta-700 hover:text-terracotta-900">
-            ← Back to Journal
-          </Link>
+          <ArrowLink href="/journal" direction="back">
+            Back to Journal
+          </ArrowLink>
         </div>
       </div>
     </article>

@@ -6,9 +6,9 @@ import type { Destination, Development, InvestmentOpportunity, JournalArticle, L
 export function DestinationCard({ destination }: { destination: Destination }) {
   return (
     <Link href={`/destinations/${destination.slug}`} className="group block">
-      <Vista variant={destination.vista} ratio="landscape" label={`${destination.name}, ${destination.region}`} />
+      <Vista variant={destination.vista} ratio="landscape" label={`${destination.name}, ${destination.region}`} hoverZoom />
       <p className="mt-4 eyebrow">{destination.region}</p>
-      <h3 className="mt-1 text-xl">{destination.name}</h3>
+      <h3 className="mt-1 text-xl transition-colors duration-200 group-hover:text-terracotta-700">{destination.name}</h3>
       <p className="mt-2 font-sans text-sm text-ink-600">{destination.summary}</p>
     </Link>
   );
@@ -17,9 +17,9 @@ export function DestinationCard({ destination }: { destination: Destination }) {
 export function ListingCard({ listing, destinationName }: { listing: Listing; destinationName?: string }) {
   return (
     <Link href={`/buy/${listing.slug}`} className="group block">
-      <Vista variant={listing.vista} ratio="landscape" label={listing.title} />
+      <Vista variant={listing.vista} ratio="landscape" label={listing.title} hoverZoom />
       <div className="mt-4 flex items-baseline justify-between gap-4">
-        <h3 className="text-xl">{listing.title}</h3>
+        <h3 className="text-xl transition-colors duration-200 group-hover:text-terracotta-700">{listing.title}</h3>
         <span className="whitespace-nowrap font-sans text-sm text-terracotta-700">{formatEUR(listing.priceEUR)}</span>
       </div>
       {destinationName && <p className="eyebrow mt-1">{destinationName}</p>}
@@ -33,8 +33,8 @@ export function ListingCard({ listing, destinationName }: { listing: Listing; de
 
 export function DevelopmentCard({ development, destinationName }: { development: Development; destinationName?: string }) {
   return (
-    <div className="block">
-      <Vista variant={development.vista} ratio="landscape" label={development.name} />
+    <div className="group block">
+      <Vista variant={development.vista} ratio="landscape" label={development.name} hoverZoom />
       <div className="mt-4 flex items-baseline justify-between gap-4">
         <h3 className="text-xl">{development.name}</h3>
         <span className="whitespace-nowrap font-sans text-sm text-terracotta-700">
@@ -52,7 +52,7 @@ export function DevelopmentCard({ development, destinationName }: { development:
 
 export function InvestmentCard({ opportunity, destinationName }: { opportunity: InvestmentOpportunity; destinationName?: string }) {
   return (
-    <div className="block rounded-sm border border-ink-100 p-6">
+    <div className="block rounded-sm border border-ink-100 p-6 transition-colors duration-200 hover:border-terracotta-300">
       {destinationName && <p className="eyebrow">{destinationName}</p>}
       <h3 className="mt-2 text-xl">{opportunity.title}</h3>
       <p className="mt-2 font-sans text-sm text-ink-600">{opportunity.summary}</p>
@@ -73,9 +73,9 @@ export function InvestmentCard({ opportunity, destinationName }: { opportunity: 
 export function JournalCard({ article }: { article: JournalArticle }) {
   return (
     <Link href={`/journal/${article.slug}`} className="group block">
-      <Vista variant={article.vista} ratio="landscape" label={article.title} />
+      <Vista variant={article.vista} ratio="landscape" label={article.title} hoverZoom />
       <p className="eyebrow mt-4">{article.category}</p>
-      <h3 className="mt-1 text-xl">{article.title}</h3>
+      <h3 className="mt-1 text-xl transition-colors duration-200 group-hover:text-terracotta-700">{article.title}</h3>
       <p className="mt-2 font-sans text-sm text-ink-600">{article.excerpt}</p>
       <p className="mt-2 font-sans text-xs uppercase tracking-wide text-ink-400">{article.readingMinutes} min read</p>
     </Link>

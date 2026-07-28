@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Vista } from "@/components/Vista";
 import { JsonLd } from "@/components/JsonLd";
+import { ArrowLink } from "@/components/ArrowLink";
 import { listings, getDestination, formatEUR } from "@/data";
 import { breadcrumbSchema, listingSchema } from "@/lib/structured-data";
 
@@ -87,12 +88,9 @@ export default async function ListingPage({ params }: Props) {
               Enquire About This Property
             </Link>
             {destination && (
-              <Link
-                href={`/destinations/${destination.slug}`}
-                className="mt-3 block text-center font-sans text-sm text-terracotta-700 hover:text-terracotta-900"
-              >
-                More about {destination.name} →
-              </Link>
+              <ArrowLink href={`/destinations/${destination.slug}`} className="mt-3 justify-center">
+                More about {destination.name}
+              </ArrowLink>
             )}
           </div>
         </div>

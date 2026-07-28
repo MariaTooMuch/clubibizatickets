@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Vista } from "@/components/Vista";
 import { SectionHeading } from "@/components/SectionHeading";
 import { DestinationCard, ListingCard, JournalCard } from "@/components/cards";
+import { ArrowLink } from "@/components/ArrowLink";
 import { destinations, listings, journalArticles, getDestination } from "@/data";
 
 export default function HomePage() {
@@ -34,6 +35,17 @@ export default function HomePage() {
         </div>
       </section>
 
+      <div className="border-b border-ink-100 bg-sand-50 py-6">
+        <p className="container-page flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-center font-sans text-xs uppercase tracking-widest text-ink-400">
+          {destinations.map((destination, index) => (
+            <span key={destination.slug} className="flex items-center gap-3">
+              {destination.name}
+              {index < destinations.length - 1 && <span aria-hidden="true" className="text-terracotta-400">·</span>}
+            </span>
+          ))}
+        </p>
+      </div>
+
       <section className="container-page py-20 md:py-28">
         <SectionHeading
           eyebrow="Our Approach"
@@ -58,9 +70,7 @@ export default function HomePage() {
         <div className="container-page">
           <div className="flex flex-wrap items-end justify-between gap-6">
             <SectionHeading eyebrow="Destinations" title="Where we operate." className="mb-0" />
-            <Link href="/destinations" className="font-sans text-sm uppercase tracking-wide text-terracotta-700 hover:text-terracotta-900">
-              View all destinations →
-            </Link>
+            <ArrowLink href="/destinations">View all destinations</ArrowLink>
           </div>
           <div className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
             {featuredDestinations.map((destination) => (
@@ -73,9 +83,7 @@ export default function HomePage() {
       <section className="container-page py-20 md:py-28">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <SectionHeading eyebrow="Featured Properties" title="A selection currently available." className="mb-0" />
-          <Link href="/buy" className="font-sans text-sm uppercase tracking-wide text-terracotta-700 hover:text-terracotta-900">
-            View all properties →
-          </Link>
+          <ArrowLink href="/buy">View all properties</ArrowLink>
         </div>
         <div className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
           {featuredListings.map((listing) => (
@@ -104,9 +112,7 @@ export default function HomePage() {
       <section className="container-page py-20 md:py-28">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <SectionHeading eyebrow="Journal" title="Insight for international buyers." className="mb-0" />
-          <Link href="/journal" className="font-sans text-sm uppercase tracking-wide text-terracotta-700 hover:text-terracotta-900">
-            Visit the Journal →
-          </Link>
+          <ArrowLink href="/journal">Visit the Journal</ArrowLink>
         </div>
         <div className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
           {latestArticles.map((article) => (
