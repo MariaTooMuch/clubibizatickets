@@ -11,6 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="/assets/cit-tracking.js"></script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -573,25 +574,25 @@ function setLang(lang){
   if(waLink) waLink.setAttribute('href', waHref);
 }
 (function(){
-  var CODE='BELLA01', DAYS=30, KEY='cit_ambassador';
-  var now=Date.now();
-  var existing=null;
-  try{ existing=JSON.parse(localStorage.getItem(KEY)); }catch(e){}
-  if(!existing || !existing.exp || existing.exp < now || existing.code!==CODE){
-    try{ localStorage.setItem(KEY, JSON.stringify({code:CODE, exp: now + DAYS*24*60*60*1000, since: now})); }catch(e){}
-  }
-  window.bellaTrack=function(type,label){
-    try{
-      var log=JSON.parse(localStorage.getItem('cit_ambassador_events')||'[]');
-      log.push({code:CODE, type:type, label:label, ts:Date.now()});
-      if(log.length>300) log=log.slice(-300);
-      localStorage.setItem('cit_ambassador_events', JSON.stringify(log));
-    }catch(e){}
-  };
+  CIT.captureAttribution('BELLA01');
   var saved = null;
   try{ saved = localStorage.getItem('cit_lang'); }catch(e){}
   setLang((saved && I18N[saved]) ? saved : 'en');
 })();
+var CATEGORY_MAP = {
+  club_click:'club', more_clubs:'club', vip_enquiry:'vip', boat_parties:'boat_party',
+  cruises:'cruise', formentera:'formentera', ferries:'ferry', watersports:'watersports',
+  activities:'activity', drinks:'drinks', contact:'contact', nav:'nav', mnav:'nav'
+};
+var EVENT_TYPE_MAP = {
+  club_click:'club_click', more_clubs:'more_clubs_click', vip_enquiry:'vip_enquiry_click',
+  boat_parties:'boat_click', cruises:'boat_click', formentera:'boat_click', ferries:'boat_click',
+  watersports:'activity_click', activities:'activity_click', drinks:'drinks_click',
+  contact:'internal_nav', nav:'internal_nav', mnav:'internal_nav'
+};
+function bellaTrack(type, label){
+  CIT.track(EVENT_TYPE_MAP[type] || 'internal_nav', { category: CATEGORY_MAP[type] || type, label: label });
+}
 function bellaVip(club, prefix){
   var dict = I18N[CUR_LANG] || I18N.en;
   var name=(document.getElementById(prefix+'-name').value||'').trim();
@@ -602,7 +603,7 @@ function bellaVip(club, prefix){
     dict['vip.msg.venue']+': '+club+String.fromCharCode(10)+dict['vip.msg.name']+': '+name+String.fromCharCode(10)+
     dict['vip.msg.date']+': '+date+String.fromCharCode(10)+dict['vip.msg.guests']+': '+guests+String.fromCharCode(10)+String.fromCharCode(10)+
     dict['vip.msg.code']+': BELLA01';
-  bellaTrack('vip_enquiry', club);
+  CIT.trackVipEnquiry(club, { date: date, guests: guests, name: name });
   window.open('https://wa.me/34625884284?text='+encodeURIComponent(msg), '_blank');
 }
 function toggleMenu(){

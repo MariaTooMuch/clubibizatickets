@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /ambassadors/*/dashboard/
 
 Sitemap: https://clubibizatickets.com/sitemap.xml

@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title data-i18n="title">Bella's Dashboard | Club Ibiza Tickets</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="/assets/cit-tracking.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0a0a0f;color:#fff;font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1000px;margin:0 auto;padding:0 24px}
+.demo-banner{background:#3a2a06;color:#f5c344;font-size:12.5px;font-weight:600;text-align:center;padding:9px 16px;border-bottom:1px solid rgba(245,195,68,.3)}
+header{position:sticky;top:0;z-index:100;background:rgba(10,10,15,.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.07)}
+.hd-inner{height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:800;font-size:15px}
+.brand img{width:38px;height:38px;border-radius:50%;object-fit:cover}
+.lang-switch{display:flex;gap:4px;background:rgba(255,255,255,.06);border-radius:999px;padding:3px}
+.lang-switch button{background:none;border:none;color:rgba(255,255,255,.5);font-size:12px;font-weight:700;padding:6px 10px;border-radius:999px;cursor:pointer;font-family:inherit}
+.lang-switch button.active{background:#a855f7;color:#fff}
+main{padding:32px 0 80px}
+h1{font-size:24px;font-weight:800;letter-spacing:-.01em}
+.lead{color:rgba(255,255,255,.45);font-size:13.5px;margin-top:4px;margin-bottom:26px}
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px}
+@media(max-width:760px){.stat-grid{grid-template-columns:repeat(2,1fr)}}
+.stat{background:#111118;border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:18px}
+.stat .n{font-size:24px;font-weight:800;font-variant-numeric:tabular-nums}
+.stat .l{font-size:11.5px;color:rgba(255,255,255,.45);margin-top:4px}
+.panel{background:#111118;border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:22px;margin-bottom:20px}
+.panel h2{font-size:15px;font-weight:800;margin-bottom:14px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;color:rgba(255,255,255,.4);font-weight:700;text-transform:uppercase;font-size:10px;letter-spacing:.05em;padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.08)}
+td{padding:9px 10px;border-bottom:1px solid rgba(255,255,255,.05)}
+.tbl-wrap{overflow-x:auto}
+.pill{display:inline-block;padding:2px 9px;border-radius:999px;font-size:10.5px;font-weight:700}
+.pill.pending{background:rgba(250,204,21,.15);color:#facc15}
+.pill.confirmed{background:rgba(34,197,94,.15);color:#4ade80}
+.pill.cancelled,.pill.refunded{background:rgba(248,113,113,.15);color:#f87171}
+.pill.paid{background:rgba(167,139,250,.18);color:#c4b5fd}
+.link-row{display:flex;gap:8px;align-items:center;margin-bottom:10px}
+.link-row code{flex:1;background:#0a0a0f;border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:9px 12px;font-size:12px;color:#a78bfa;overflow-x:auto;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;gap:7px;background:linear-gradient(135deg,#7c3aed,#a855f7);color:#fff;font-weight:700;font-size:12.5px;padding:9px 14px;border-radius:8px;text-decoration:none;border:none;cursor:pointer;white-space:nowrap}
+</style>
+</head>
+<body>
+<div class="demo-banner" data-i18n="demo">⚠ DEMO MODE — sample data plus anything you've clicked on your own page in this browser. No live database connected yet.</div>
+<header>
+  <div class="wrap hd-inner">
+    <div class="brand"><img src="/images/bella-profile.webp" alt="Bella"> <span data-i18n="brand">Bella's Dashboard</span></div>
+    <div class="lang-switch">
+      <button data-lang="en" onclick="setLang('en')">EN</button>
+      <button data-lang="pt" onclick="setLang('pt')">PT</button>
+      <button data-lang="es" onclick="setLang('es')">ES</button>
+    </div>
+  </div>
+</header>
+<main class="wrap">
+  <h1 data-i18n="h1">Welcome back, Bella</h1>
+  <p class="lead" data-i18n="lead">This is your data only — visits, clicks and confirmed tickets from your page.</p>
+
+  <div class="stat-grid" id="stats"></div>
+
+  <div class="panel">
+    <h2 data-i18n="linksTitle">Your Shareable Links</h2>
+    <div class="link-row"><code>https://clubibizatickets.com/ambassadors/bella/</code><button class="btn" onclick="copyLink(this)">Copy</button></div>
+    <div class="link-row"><code>https://clubibizatickets.com/?ref=BELLA01</code><button class="btn" onclick="copyLink(this)">Copy</button></div>
+    <div class="link-row"><code>https://clubibizatickets.com/?ref=BELLA01#unvrs</code><button class="btn" onclick="copyLink(this)">Copy</button></div>
+    <div class="link-row"><code>https://clubibizatickets.com/?ref=BELLA01#vip-tables</code><button class="btn" onclick="copyLink(this)">Copy</button></div>
+  </div>
+
+  <div class="panel">
+    <h2 data-i18n="salesTitle">Confirmed Tickets</h2>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th data-i18n="colDate">Date</th><th data-i18n="colVenue">Venue</th><th data-i18n="colEvent">Event</th><th data-i18n="colQty">Qty</th><th data-i18n="colStatus">Status</th></tr></thead>
+        <tbody id="salesBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2 data-i18n="vipTitle">VIP Table Enquiries</h2>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th data-i18n="colVenue">Venue</th><th data-i18n="colGuests">Guests</th><th data-i18n="colStatus">Status</th></tr></thead>
+        <tbody id="vipBody"></tbody>
+      </table>
+    </div>
+  </div>
+</main>
+<script>
+var I18N = {
+en:{title:"Bella's Dashboard | Club Ibiza Tickets", demo:"⚠ DEMO MODE — sample data plus anything you've clicked on your own page in this browser. No live database connected yet.", brand:"Bella's Dashboard", h1:"Welcome back, Bella", lead:"This is your data only — visits, clicks and confirmed tickets from your page.",
+  statVisits:"Page Visits", statClicks:"Tracked Clicks", statVip:"VIP Enquiries", statConfirmed:"Confirmed Tickets", statCancelled:"Cancelled / Refunded", statPending:"Pending Commission", statPaid:"Paid Commission",
+  linksTitle:"Your Shareable Links", salesTitle:"Confirmed Tickets", vipTitle:"VIP Table Enquiries", colDate:"Date", colVenue:"Venue", colEvent:"Event", colQty:"Qty", colStatus:"Status", colGuests:"Guests",
+  stPending:"Pending", stConfirmed:"Confirmed", stCancelled:"Cancelled", stRefunded:"Refunded", stPaid:"Paid"},
+pt:{title:"Painel da Bella | Club Ibiza Tickets", demo:"⚠ MODO DEMO — dados de exemplo mais tudo que você clicou na sua própria página neste navegador. Nenhum banco de dados real conectado ainda.", brand:"Painel da Bella", h1:"Bem-vinda de volta, Bella", lead:"Estes são apenas os seus dados — visitas, cliques e ingressos confirmados da sua página.",
+  statVisits:"Visitas à Página", statClicks:"Cliques Rastreados", statVip:"Pedidos VIP", statConfirmed:"Ingressos Confirmados", statCancelled:"Cancelados / Reembolsados", statPending:"Comissão Pendente", statPaid:"Comissão Paga",
+  linksTitle:"Seus Links para Compartilhar", salesTitle:"Ingressos Confirmados", vipTitle:"Pedidos de Mesa VIP", colDate:"Data", colVenue:"Local", colEvent:"Evento", colQty:"Qtd", colStatus:"Status", colGuests:"Convidados",
+  stPending:"Pendente", stConfirmed:"Confirmado", stCancelled:"Cancelado", stRefunded:"Reembolsado", stPaid:"Pago"},
+es:{title:"Panel de Bella | Club Ibiza Tickets", demo:"⚠ MODO DEMO — datos de ejemplo más todo lo que hayas hecho clic en tu propia página en este navegador. Aún no hay base de datos real conectada.", brand:"Panel de Bella", h1:"Bienvenida de nuevo, Bella", lead:"Estos son solo tus datos — visitas, clics y entradas confirmadas de tu página.",
+  statVisits:"Visitas a la Página", statClicks:"Clics Rastreados", statVip:"Consultas VIP", statConfirmed:"Entradas Confirmadas", statCancelled:"Canceladas / Reembolsadas", statPending:"Comisión Pendiente", statPaid:"Comisión Pagada",
+  linksTitle:"Tus Enlaces para Compartir", salesTitle:"Entradas Confirmadas", vipTitle:"Consultas de Mesa VIP", colDate:"Fecha", colVenue:"Local", colEvent:"Evento", colQty:"Cant.", colStatus:"Estado", colGuests:"Invitados",
+  stPending:"Pendiente", stConfirmed:"Confirmado", stCancelled:"Cancelado", stRefunded:"Reembolsado", stPaid:"Pagado"}
+};
+var CUR='en';
+function t(k){ return I18N[CUR][k] || I18N.en[k] || k; }
+function setLang(lang){
+  if(!I18N[lang]) return;
+  CUR = lang;
+  try{ localStorage.setItem('cit_lang', lang); }catch(e){}
+  document.querySelectorAll('[data-i18n]').forEach(function(el){ el.textContent = I18N[lang][el.getAttribute('data-i18n')] || el.textContent; });
+  document.querySelectorAll('.lang-switch button').forEach(function(b){ b.classList.toggle('active', b.getAttribute('data-lang')===lang); });
+  renderData();
+}
+function copyLink(btn){
+  var code = btn.previousElementSibling.textContent;
+  navigator.clipboard && navigator.clipboard.writeText(code);
+  var orig = btn.textContent; btn.textContent = '✓'; setTimeout(function(){btn.textContent=orig;}, 1200);
+}
+var DEMO_CLICKS_COUNT = 9;
+var DEMO_VIP = [
+  {venue:'UNVRS', guests:6, status:'confirmed'}, {venue:'UNVRS', guests:4, status:'confirmed'}, {venue:'UNVRS', guests:8, status:'confirmed'},
+  {venue:'Hi Ibiza', guests:5, status:'confirmed'}, {venue:'Hi Ibiza', guests:6, status:'confirmed'}, {venue:'Hi Ibiza', guests:4, status:'confirmed'},
+  {venue:'Hi Ibiza', guests:7, status:'confirmed'}, {venue:'Hi Ibiza', guests:5, status:'confirmed'},
+  {venue:'Ushuaia Ibiza', guests:4, status:'confirmed'}, {venue:'Ushuaia Ibiza', guests:6, status:'confirmed'},
+  {venue:'UNVRS', guests:3, status:'pending'}, {venue:'Ushuaia Ibiza', guests:5, status:'pending'}
+];
+var DEMO_SALES = [
+  {date:'', venue:'UNVRS', event:'Anyma · ÆDEN (example)', qty:2, status:'confirmed'},
+  {date:'', venue:'Hi Ibiza', event:'Hugel · Make The Girls Dance (example)', qty:3, status:'cancelled'}
+];
+(function(){ var d=new Date(); d.setDate(d.getDate()-3); DEMO_SALES[0].date=d.toISOString().slice(0,10);
+  var d2=new Date(); d2.setDate(d2.getDate()-1); DEMO_SALES[1].date=d2.toISOString().slice(0,10); })();
+
+function loadRealEvents(){
+  try{ return JSON.parse(localStorage.getItem('cit_events')||'[]').filter(function(e){return e.ambassadorCode==='BELLA01';}); }catch(e){ return []; }
+}
+function loadRealVip(){
+  try{ return JSON.parse(localStorage.getItem('cit_vip_enquiries')||'[]').filter(function(e){return e.ambassadorCode==='BELLA01';}); }catch(e){ return []; }
+}
+function loadSales(){
+  try{ var s = JSON.parse(localStorage.getItem('cit_admin_sales')); if(s) return s.filter(function(x){return x.ambassadorCode==='BELLA01';}).map(function(x){return {date:x.saleDate, venue:x.venue, event:x.event, qty:x.qty, status:x.status};}); }catch(e){}
+  return DEMO_SALES;
+}
+
+function renderData(){
+  var realEvents = loadRealEvents();
+  var visits = DEMO_CLICKS_COUNT + realEvents.filter(function(e){return e.type==='page_view';}).length;
+  var totalClicks = 22 + realEvents.length;
+  var vip = DEMO_VIP.concat(loadRealVip().map(function(e){return {venue:e.venue, guests:e.guests, status:e.reservationStatus};}));
+  var vipCount = vip.length;
+  var sales = loadSales();
+  var confirmed = sales.filter(function(s){return s.status==='confirmed'||s.status==='paid';}).reduce(function(a,s){return a+Number(s.qty);},0);
+  var cancelled = sales.filter(function(s){return s.status==='cancelled'||s.status==='refunded';}).reduce(function(a,s){return a+Number(s.qty);},0);
+  var pending = sales.filter(function(s){return s.status==='confirmed';}).reduce(function(a,s){return a+Number(s.qty);},0) * 1;
+  var paid = sales.filter(function(s){return s.status==='paid';}).reduce(function(a,s){return a+Number(s.qty);},0) * 1;
+
+  document.getElementById('stats').innerHTML = [
+    [visits, t('statVisits')], [totalClicks, t('statClicks')], [vipCount, t('statVip')], [confirmed, t('statConfirmed')],
+    [cancelled, t('statCancelled')], ['€'+pending.toFixed(2), t('statPending')], ['€'+paid.toFixed(2), t('statPaid')]
+  ].slice(0,4).map(function(s){ return '<div class="stat"><div class="n">'+s[0]+'</div><div class="l">'+s[1]+'</div></div>'; }).join('') +
+  '';
+  // second row for remaining stats
+  var extra = [[cancelled, t('statCancelled')], ['€'+pending.toFixed(2), t('statPending')], ['€'+paid.toFixed(2), t('statPaid')], [vipCount, t('statVip')]];
+  document.querySelectorAll('.stat-grid')[0].innerHTML = [
+    [visits, t('statVisits')], [totalClicks, t('statClicks')], [vipCount, t('statVip')], [confirmed, t('statConfirmed')]
+  ].map(function(s){return '<div class="stat"><div class="n">'+s[0]+'</div><div class="l">'+s[1]+'</div></div>';}).join('');
+
+  document.getElementById('salesBody').innerHTML = sales.map(function(s){
+    return '<tr><td>'+s.date+'</td><td>'+s.venue+'</td><td>'+s.event+'</td><td>'+s.qty+'</td><td><span class="pill '+s.status+'">'+t('st'+s.status.charAt(0).toUpperCase()+s.status.slice(1))+'</span></td></tr>';
+  }).join('');
+
+  document.getElementById('vipBody').innerHTML = vip.map(function(v){
+    return '<tr><td>'+v.venue+'</td><td>'+v.guests+'</td><td><span class="pill '+v.status+'">'+t('st'+v.status.charAt(0).toUpperCase()+v.status.slice(1))+'</span></td></tr>';
+  }).join('');
+}
+(function(){
+  var saved=null; try{ saved=localStorage.getItem('cit_lang'); }catch(e){}
+  setLang((saved && I18N[saved]) ? saved : 'en');
+})();
+</script>
+</body>
+</html>
