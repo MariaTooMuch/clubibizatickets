@@ -31,6 +31,7 @@ a{color:inherit}
 .card{background:#111118;border:1px solid rgba(255,255,255,.07);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;text-decoration:none;color:#fff;transition:border-color .2s,transform .2s}
 .card:hover{border-color:rgba(167,139,250,.4);transform:translateY(-2px)}
 .card .cimg{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:#0d0d13}
+.card .cimg.tcard{display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(167,139,250,.2),rgba(10,10,15,.95));font-size:14px;font-weight:800;letter-spacing:.02em;color:rgba(255,255,255,.6);text-align:center;padding:16px}
 .card .cbody{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
 .card h3{font-size:16px;font-weight:700}
 .card p{font-size:13px;color:rgba(255,255,255,.5);line-height:1.5}
@@ -341,6 +342,22 @@ header{position:sticky;top:0;z-index:1000;background:rgba(10,10,15,.9);backdrop-
         <img class="cimg" src="https://media.clubtickets.com/migrated/event/3f9fff1e-1555-4a8e-a628-5de62535560c.jpg" alt="Beach City Boat" loading="lazy" onerror="this.style.display='none'">
         <div class="cbody"><p class="tag" data-i18n="ferries.shuttle">Shuttle</p><h3>Beach City Boat</h3><span class="cta" data-i18n="cta.bookNow">Book Now →</span></div>
       </a>
+      <a class="card" href="https://www.clubtickets.com/formentera-day-trip/balearia/balearia?aff=CT184" target="_blank" rel="nofollow noopener" onclick="bellaTrack('ferries','Balearia')">
+        <div class="cimg tcard">Balearia</div>
+        <div class="cbody"><p class="tag" data-i18n="ferries.formentera">Ibiza → Formentera</p><h3>Balearia</h3><span class="cta" data-i18n="cta.bookNow">Book Now →</span></div>
+      </a>
+      <a class="card" href="https://www.clubtickets.com/formentera-day-trip/cruceros-portmany/formentera?aff=CT184" target="_blank" rel="nofollow noopener" onclick="bellaTrack('ferries','Cruceros Portmany')">
+        <div class="cimg tcard">Cruceros Portmany</div>
+        <div class="cbody"><p class="tag" data-i18n="ferries.sanAntonio">San Antonio → Formentera</p><h3>Cruceros Portmany</h3><span class="cta" data-i18n="cta.bookNow">Book Now →</span></div>
+      </a>
+      <a class="card" href="https://www.clubtickets.com/formentera-day-trip/santa-eularia-ferry/santa-eulalia-formentera-ferry?aff=CT184" target="_blank" rel="nofollow noopener" onclick="bellaTrack('ferries','Santa Eularia Ferry')">
+        <div class="cimg tcard">Santa Eularia Ferry</div>
+        <div class="cbody"><p class="tag" data-i18n="ferries.formentera">Ibiza → Formentera</p><h3>Santa Eularia Ferry</h3><span class="cta" data-i18n="cta.bookNow">Book Now →</span></div>
+      </a>
+      <a class="card" href="https://www.clubtickets.com/formentera-day-trip/barco-a-formentera-ulises-cat/ulises-cat-barco-a-formentera?aff=CT184" target="_blank" rel="nofollow noopener" onclick="bellaTrack('ferries','Ulises Cat')">
+        <div class="cimg tcard">Ulises Cat</div>
+        <div class="cbody"><p class="tag" data-i18n="ferries.formentera">Ibiza → Formentera</p><h3>Ulises Cat</h3><span class="cta" data-i18n="cta.bookNow">Book Now →</span></div>
+      </a>
     </div>
   </div>
 </section>
@@ -475,7 +492,7 @@ en:{
 "boatParties.kicker":"Boat Parties","boatParties.h2":"Music on the Water","boatParties.sub":"The same energy as a club night, just with the sun instead of strobe lights.","boatParties.tag":"Party","boatParties.desc":"The island's original and best-known boat party.",
 "cruises.kicker":"Boat Trips & Cruises","cruises.h2":"A Day on the Water","cruises.sub":"Swimming stops, scenic coastline and a slower pace — the calmer side of the sea.","cruises.daytime":"Daytime","cruises.sunset":"Sunset","cruises.nature":"Nature","cruises.premium":"Premium","cruises.adventure":"Adventure","cruises.family":"Family",
 "formentera.kicker":"Formentera","formentera.h2":"Crystal-Clear Water, One Island Over","formentera.sub":"The easiest day trip from Ibiza — and one of the best beaches in the Mediterranean.","formentera.mostSold":"Most Sold","formentera.dayTrip":"Day Trip",
-"ferries.kicker":"Ferries","ferries.h2":"Getting Around by Sea","ferries.sub":"Scheduled boat shuttles along the coast — no booking a whole trip required.","ferries.shuttle":"Shuttle",
+"ferries.kicker":"Ferries","ferries.h2":"Getting Around by Sea","ferries.sub":"Scheduled boat shuttles along the coast — no booking a whole trip required.","ferries.shuttle":"Shuttle","ferries.formentera":"Ibiza → Formentera","ferries.sanAntonio":"San Antonio → Formentera",
 "watersports.kicker":"Watersports","watersports.h2":"Get on the Water","watersports.sub":"Jet skis, eFoils and eSurf — no experience needed.","watersports.jetski":"Jet Ski","watersports.efoil":"eFoil","watersports.esurf":"eSurf",
 "activities.kicker":"Activities","activities.h2":"Beyond the Beach","activities.sub":"Buggies, hot air balloons and the island's daytime side.","activities.tour":"Tour","activities.sunrise":"Sunrise","activities.nightMarket":"Night Market",
 "drinks.kicker":"Drinks Packages","drinks.h2":"Skip the Bar Queue","drinks.sub":"Pre-order a 5-drink package at any of the big three and save up to €30.","drinks.from":"From €99.99","drinks.cta":"See the Package →",
@@ -507,7 +524,7 @@ pt:{
 "boatParties.kicker":"Boat Parties","boatParties.h2":"Música em Cima da Água","boatParties.sub":"A mesma energia de uma balada, só que com sol em vez de luz estroboscópica.","boatParties.tag":"Festa","boatParties.desc":"A boat party original e mais conhecida da ilha.",
 "cruises.kicker":"Passeios de Barco e Cruzeiros","cruises.h2":"Um Dia em Cima da Água","cruises.sub":"Paradas para nadar, costa cênica e um ritmo mais tranquilo — o lado calmo do mar.","cruises.daytime":"Diurno","cruises.sunset":"Pôr do Sol","cruises.nature":"Natureza","cruises.premium":"Premium","cruises.adventure":"Aventura","cruises.family":"Família",
 "formentera.kicker":"Formentera","formentera.h2":"Água Cristalina, a Uma Ilha de Distância","formentera.sub":"O passeio de um dia mais fácil a partir de Ibiza — e uma das melhores praias do Mediterrâneo.","formentera.mostSold":"Mais Vendido","formentera.dayTrip":"Bate-Volta",
-"ferries.kicker":"Ferries","ferries.h2":"Se Locomovendo pelo Mar","ferries.sub":"Barcos com horário fixo ao longo da costa — sem precisar reservar um passeio inteiro.","ferries.shuttle":"Shuttle",
+"ferries.kicker":"Ferries","ferries.h2":"Se Locomovendo pelo Mar","ferries.sub":"Barcos com horário fixo ao longo da costa — sem precisar reservar um passeio inteiro.","ferries.shuttle":"Shuttle","ferries.formentera":"Ibiza → Formentera","ferries.sanAntonio":"San Antonio → Formentera",
 "watersports.kicker":"Esportes Aquáticos","watersports.h2":"Entre na Água","watersports.sub":"Jet ski, eFoil e eSurf — sem precisar de experiência.","watersports.jetski":"Jet Ski","watersports.efoil":"eFoil","watersports.esurf":"eSurf",
 "activities.kicker":"Atividades","activities.h2":"Além da Praia","activities.sub":"Buggys, balões de ar quente e o lado diurno da ilha.","activities.tour":"Passeio","activities.sunrise":"Nascer do Sol","activities.nightMarket":"Feira Noturna",
 "drinks.kicker":"Pacotes de Bebidas","drinks.h2":"Pule a Fila do Bar","drinks.sub":"Pré-compre um pacote de 5 drinks em qualquer uma das três grandes baladas e economize até €30.","drinks.from":"A partir de €99,99","drinks.cta":"Ver o Pacote →",
@@ -539,7 +556,7 @@ es:{
 "boatParties.kicker":"Boat Parties","boatParties.h2":"Música Sobre el Agua","boatParties.sub":"La misma energía que una noche de discoteca, pero con sol en lugar de luces estroboscópicas.","boatParties.tag":"Fiesta","boatParties.desc":"La boat party original y más conocida de la isla.",
 "cruises.kicker":"Excursiones y Cruceros en Barco","cruises.h2":"Un Día en el Agua","cruises.sub":"Paradas para nadar, costa escénica y un ritmo más tranquilo — el lado calmado del mar.","cruises.daytime":"Diurno","cruises.sunset":"Atardecer","cruises.nature":"Naturaleza","cruises.premium":"Premium","cruises.adventure":"Aventura","cruises.family":"Familiar",
 "formentera.kicker":"Formentera","formentera.h2":"Agua Cristalina, a Una Isla de Distancia","formentera.sub":"La excursión de un día más fácil desde Ibiza — y una de las mejores playas del Mediterráneo.","formentera.mostSold":"Más Vendido","formentera.dayTrip":"Excursión de un Día",
-"ferries.kicker":"Ferries","ferries.h2":"Moverse por Mar","ferries.sub":"Barcos con horario fijo a lo largo de la costa — sin reservar una excursión completa.","ferries.shuttle":"Shuttle",
+"ferries.kicker":"Ferries","ferries.h2":"Moverse por Mar","ferries.sub":"Barcos con horario fijo a lo largo de la costa — sin reservar una excursión completa.","ferries.shuttle":"Shuttle","ferries.formentera":"Ibiza → Formentera","ferries.sanAntonio":"San Antonio → Formentera",
 "watersports.kicker":"Deportes Acuáticos","watersports.h2":"Métete en el Agua","watersports.sub":"Motos de agua, eFoil y eSurf — sin experiencia necesaria.","watersports.jetski":"Moto de Agua","watersports.efoil":"eFoil","watersports.esurf":"eSurf",
 "activities.kicker":"Actividades","activities.h2":"Más Allá de la Playa","activities.sub":"Buggies, globos aerostáticos y el lado diurno de la isla.","activities.tour":"Tour","activities.sunrise":"Amanecer","activities.nightMarket":"Mercadillo Nocturno",
 "drinks.kicker":"Packs de Bebidas","drinks.h2":"Sáltate la Cola de la Barra","drinks.sub":"Reserva un pack de 5 bebidas en cualquiera de las tres grandes y ahorra hasta 30€.","drinks.from":"Desde 99,99€","drinks.cta":"Ver el Pack →",
