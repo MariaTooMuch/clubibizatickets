@@ -55,6 +55,7 @@ a{color:inherit}
 footer a{color:rgba(255,255,255,.45);text-decoration:none;font-size:13px}
 footer a:hover{color:#a78bfa}
 .hero-grid{display:grid;grid-template-columns:220px 1fr;gap:44px;align-items:center}
+.hero-photo-wrap{display:flex;flex-direction:column;align-items:center}
 .hero-photo{width:200px;height:200px;border-radius:50%;overflow:hidden;border:3px solid rgba(167,139,250,.4);box-shadow:0 0 60px rgba(124,58,237,.2);flex-shrink:0}
 @media(max-width:680px){
   .hero-grid{grid-template-columns:1fr;justify-items:center;text-align:center;gap:22px}
@@ -148,13 +149,15 @@ header{position:sticky;top:0;z-index:1000;background:rgba(10,10,15,.9);backdrop-
 
 <section style="padding:72px 24px 64px;background:radial-gradient(900px 500px at 50% -10%,rgba(167,139,250,.16),transparent),#0a0a0f">
   <div class="wrap hero-grid">
-    <div class="hero-photo">
-      <img src="/images/bella-profile.webp" alt="Bella — Ibiza Insider" style="width:100%;height:100%;object-fit:cover;object-position:center 20%">
+    <div class="hero-photo-wrap">
+      <div class="hero-photo">
+        <img src="/images/bella-profile.webp" alt="Bella — Ibiza Insider" style="width:100%;height:100%;object-fit:cover;object-position:center 20%">
+      </div>
+      <p class="kicker" style="margin-top:14px;text-align:center" data-i18n="hero.kicker">Bella · Ibiza Insider</p>
     </div>
     <div>
-      <p class="kicker" style="margin-bottom:12px" data-i18n="hero.kicker">Bella • Ibiza Insider, powered by Club Ibiza Tickets</p>
       <h1 style="font-size:clamp(30px,5vw,54px);font-weight:900;letter-spacing:-.03em;line-height:1.05;margin-bottom:16px" data-i18n="hero.h1">Ibiza Starts Here</h1>
-      <p style="font-size:16px;color:rgba(255,255,255,.6);line-height:1.7;max-width:560px" data-i18n="hero.sub">The clubs, tables and boat days I actually book for myself and my friends — all ready to book through Club Ibiza Tickets.</p>
+      <p style="font-size:16px;color:rgba(255,255,255,.6);line-height:1.7;max-width:560px" data-i18n="hero.sub">Local recommendations from someone who actually lives it — the clubs, VIP tables and boat days I book for myself and my friends, all ready through Club Ibiza Tickets.</p>
     </div>
   </div>
 </section>
@@ -459,7 +462,7 @@ var I18N = {
 en:{
 "meta.title":"Ibiza Starts Here | Club Ibiza Tickets",
 "nav.backToSite":"← Club Ibiza Tickets","nav.exploreIbiza":"Explore Ibiza","nav.sections":"Sections","nav.clubs":"The Clubs","nav.moreClubs":"More Ibiza Clubs","nav.vip":"VIP Tables","nav.boatParties":"Boat Parties","nav.cruises":"Boat Trips & Cruises","nav.formentera":"Formentera","nav.watersports":"Watersports","nav.activities":"Activities","nav.drinks":"Drinks Packages","nav.contact":"Contact Bella","nav.getInTouch":"Get in Touch",
-"hero.kicker":"Bella • Ibiza Insider, powered by Club Ibiza Tickets","hero.h1":"Ibiza Starts Here","hero.sub":"The clubs, tables and boat days I actually book for myself and my friends — all ready to book through Club Ibiza Tickets.",
+"hero.kicker":"Bella · Ibiza Insider","hero.h1":"Ibiza Starts Here","hero.sub":"Local recommendations from someone who actually lives it — the clubs, VIP tables and boat days I book for myself and my friends, all ready through Club Ibiza Tickets.",
 "clubs.kicker":"Where to Start","clubs.h2":"The Clubs","clubs.sub":"The full weekly programme at every major club on the island — see who's playing and book straight through.","clubs.cta":"See the full week →",
 "clubs.unvrs.tag":"#1 Club in the World · San Rafael","clubs.unvrs.desc":"The world's first hyperclub — a different headliner every night of the week, from Tiësto to Carl Cox.",
 "clubs.hi.tag":"Playa d'en Bossa","clubs.hi.desc":"Two rooms, one legendary sound system — the Theatre and the Club, a different resident every night.",
@@ -491,7 +494,7 @@ en:{
 pt:{
 "meta.title":"Ibiza Começa Aqui | Club Ibiza Tickets",
 "nav.backToSite":"← Club Ibiza Tickets","nav.exploreIbiza":"Explorar Ibiza","nav.sections":"Seções","nav.clubs":"As Baladas","nav.moreClubs":"Mais Baladas em Ibiza","nav.vip":"Mesas VIP","nav.boatParties":"Boat Parties","nav.cruises":"Passeios de Barco e Cruzeiros","nav.formentera":"Formentera","nav.watersports":"Esportes Aquáticos","nav.activities":"Atividades","nav.drinks":"Pacotes de Bebidas","nav.contact":"Falar com a Bella","nav.getInTouch":"Fale Comigo",
-"hero.kicker":"Bella • Ibiza Insider, com o apoio da Club Ibiza Tickets","hero.h1":"Ibiza Começa Aqui","hero.sub":"As baladas, mesas e dias de barco que eu mesma reservo para mim e meus amigos — tudo pronto para reservar pela Club Ibiza Tickets.",
+"hero.kicker":"Bella · Ibiza Insider","hero.h1":"Ibiza Começa Aqui","hero.sub":"Recomendações de quem vive isso de verdade — as baladas, mesas VIP e dias de barco que eu mesma reservo para mim e meus amigos, tudo pronto pela Club Ibiza Tickets.",
 "clubs.kicker":"Por Onde Começar","clubs.h2":"As Baladas","clubs.sub":"A programação semanal completa de cada grande balada da ilha — veja quem toca e reserve direto.","clubs.cta":"Ver a semana completa →",
 "clubs.unvrs.tag":"#1 Clube do Mundo · San Rafael","clubs.unvrs.desc":"O primeiro hyperclub do mundo — um headliner diferente todas as noites da semana, de Tiësto a Carl Cox.",
 "clubs.hi.tag":"Playa d'en Bossa","clubs.hi.desc":"Duas pistas, um sistema de som lendário — Theatre e Club, um resident diferente a cada noite.",
@@ -523,7 +526,7 @@ pt:{
 es:{
 "meta.title":"Ibiza Empieza Aquí | Club Ibiza Tickets",
 "nav.backToSite":"← Club Ibiza Tickets","nav.exploreIbiza":"Explorar Ibiza","nav.sections":"Secciones","nav.clubs":"Las Discotecas","nav.moreClubs":"Más Discotecas de Ibiza","nav.vip":"Mesas VIP","nav.boatParties":"Boat Parties","nav.cruises":"Excursiones y Cruceros en Barco","nav.formentera":"Formentera","nav.watersports":"Deportes Acuáticos","nav.activities":"Actividades","nav.drinks":"Packs de Bebidas","nav.contact":"Contactar a Bella","nav.getInTouch":"Contacto",
-"hero.kicker":"Bella • Ibiza Insider, con el respaldo de Club Ibiza Tickets","hero.h1":"Ibiza Empieza Aquí","hero.sub":"Las discotecas, mesas y días en barco que reservo para mí y mis amigos — todo listo para reservar a través de Club Ibiza Tickets.",
+"hero.kicker":"Bella · Ibiza Insider","hero.h1":"Ibiza Empieza Aquí","hero.sub":"Recomendaciones de alguien que realmente lo vive — las discotecas, mesas VIP y días en barco que reservo para mí y mis amigos, todo listo a través de Club Ibiza Tickets.",
 "clubs.kicker":"Por Dónde Empezar","clubs.h2":"Las Discotecas","clubs.sub":"La programación semanal completa de cada gran discoteca de la isla — mira quién pincha y reserva directamente.","clubs.cta":"Ver la semana completa →",
 "clubs.unvrs.tag":"#1 Club del Mundo · San Rafael","clubs.unvrs.desc":"El primer hyperclub del mundo — un cabeza de cartel distinto cada noche de la semana, de Tiësto a Carl Cox.",
 "clubs.hi.tag":"Playa d'en Bossa","clubs.hi.desc":"Dos salas, un sistema de sonido legendario — el Theatre y el Club, un resident distinto cada noche.",
