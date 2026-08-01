@@ -603,7 +603,7 @@ function bellaVip(club, prefix){
     dict['vip.msg.venue']+': '+club+String.fromCharCode(10)+dict['vip.msg.name']+': '+name+String.fromCharCode(10)+
     dict['vip.msg.date']+': '+date+String.fromCharCode(10)+dict['vip.msg.guests']+': '+guests+String.fromCharCode(10)+String.fromCharCode(10)+
     dict['vip.msg.code']+': BELLA01';
-  CIT.trackVipEnquiry(club, { date: date, guests: guests, name: name });
+  CIT.trackVipEnquiry(club);
   window.open('https://wa.me/34625884284?text='+encodeURIComponent(msg), '_blank');
 }
 function toggleMenu(){

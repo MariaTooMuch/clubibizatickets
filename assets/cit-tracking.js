@@ -1,46 +1,18 @@
 /*
- * Club Ibiza Tickets — shared ambassador tracking client.
- * Works standalone (no backend) using localStorage as the event store.
- * When window.CIT_SUPABASE_URL / window.CIT_SUPABASE_ANON_KEY are set AND
- * the supabase-js library is loaded, events are also written to Supabase
- * (schema: supabase/schema.sql). Until then, this is the local demo store
- * the admin/ambassador dashboards read from.
+ * Club Ibiza Tickets — lightweight ambassador attribution (phase 1).
+ *
+ * Stores which ambassador referred a visitor for 30 days and pushes
+ * page-view / ticket-click / VIP-enquiry events into the site's existing
+ * GTM dataLayer. No database, no dashboard, no automatic commission
+ * calculation — confirmed sales and commissions are reconciled manually
+ * from ClubTickets reports. Structured so a real backend + dashboard can
+ * be added in a later phase without changing how pages call this file.
  *
  * Reusable across every ambassador page, not just Bella's.
  */
 (function (global) {
   var ATTR_KEY = 'cit_ambassador';
-  var VISITOR_KEY = 'cit_visitor_id';
-  var EVENTS_KEY = 'cit_events';
   var ATTR_DAYS = 30;
-
-  function uuid() {
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-      var r = (Math.random() * 16) | 0, v = c === 'x' ? r : (r & 0x3) | 0x8;
-      return v.toString(16);
-    });
-  }
-
-  function getVisitorId() {
-    var id = null;
-    try { id = localStorage.getItem(VISITOR_KEY); } catch (e) {}
-    if (!id) {
-      id = uuid();
-      try { localStorage.setItem(VISITOR_KEY, id); } catch (e) {}
-    }
-    return id;
-  }
-
-  function deviceCategory() {
-    var w = global.innerWidth || 1024;
-    if (w < 640) return 'mobile';
-    if (w < 1024) return 'tablet';
-    return 'desktop';
-  }
-
-  function currentLang() {
-    try { return localStorage.getItem('cit_lang') || 'en'; } catch (e) { return 'en'; }
-  }
 
   function readAttribution() {
     try {
@@ -48,6 +20,13 @@
       if (raw && raw.exp && raw.exp > Date.now()) return raw;
     } catch (e) {}
     return null;
+  }
+
+  // Maps a page slug (from the URL) to its ambassador code. Extend as new
+  // ambassadors are added.
+  function ambassadorCodeBySlug(slug) {
+    var map = { bella: 'BELLA01' };
+    return map[slug] || null;
   }
 
   // Capture attribution from: visiting /ambassadors/{code}/ directly, or any
@@ -61,7 +40,7 @@
     }
     if (!code) {
       var m = global.location.pathname.match(/\/ambassadors\/([a-z0-9-]+)\/?/i);
-      if (m) code = CIT_AMBASSADOR_CODE_BY_SLUG(m[1]);
+      if (m) code = ambassadorCodeBySlug(m[1]);
     }
     if (!code) return readAttribution();
 
@@ -70,92 +49,40 @@
     if (!existing || existing.code !== code) {
       existing = {
         code: code,
-        visitorId: getVisitorId(),
         since: now,
         exp: now + ATTR_DAYS * 24 * 60 * 60 * 1000,
-        entryPage: global.location.pathname + global.location.search + global.location.hash,
-        referralSource: (document.referrer ? new URL(document.referrer).hostname : 'direct')
+        entryPage: global.location.pathname + global.location.search + global.location.hash
       };
       try { localStorage.setItem(ATTR_KEY, JSON.stringify(existing)); } catch (e) {}
-      track('page_view', { label: 'attribution_start' });
     }
+    track('page_view', {});
     return existing;
   }
 
-  // Maps a page slug (from the URL) to its ambassador code. Extend as new
-  // ambassadors are added — kept as a small static map so this file has no
-  // dependency on a backend to resolve attribution.
-  function CIT_AMBASSADOR_CODE_BY_SLUG(slug) {
-    var map = { bella: 'BELLA01' };
-    return map[slug] || null;
-  }
-
+  // Pushes a tracked event into the existing GTM dataLayer. Clicks are
+  // never sales — confirmed tickets are reconciled manually from
+  // ClubTickets reports, kept entirely separate from this event stream.
   function track(type, payload) {
     payload = payload || {};
     var attribution = readAttribution();
-    if (!attribution) return; // no ambassador attribution active — nothing to attribute this event to
-    var event = {
-      id: uuid(),
-      ambassadorCode: attribution.code,
-      visitorId: attribution.visitorId,
-      type: type,
-      productCategory: payload.category || null,
-      venue: payload.venue || null,
-      eventName: payload.label || null,
-      destinationUrl: payload.url || null,
-      language: currentLang(),
-      device: deviceCategory(),
-      occurredAt: new Date().toISOString()
-    };
-    try {
-      var log = JSON.parse(localStorage.getItem(EVENTS_KEY) || '[]');
-      log.push(event);
-      if (log.length > 500) log = log.slice(-500);
-      localStorage.setItem(EVENTS_KEY, JSON.stringify(log));
-    } catch (e) {}
-
-    if (global.CIT_SUPABASE_URL && global.CIT_SUPABASE_ANON_KEY && global.supabase) {
-      try {
-        var client = global.__citSupabase || (global.__citSupabase = global.supabase.createClient(global.CIT_SUPABASE_URL, global.CIT_SUPABASE_ANON_KEY));
-        client.from('click_events').insert({
-          ambassador_id: null, // resolved server-side via a view/RPC keyed on ambassador code in production
-          event_type: type,
-          product_category: event.productCategory,
-          venue: event.venue,
-          event_name: event.eventName,
-          destination_url: event.destinationUrl,
-          language: event.language,
-          device_category: event.device
-        }).then(function(){}, function(){});
-      } catch (e) {}
-    }
-    return event;
+    if (!attribution) return;
+    global.dataLayer = global.dataLayer || [];
+    global.dataLayer.push({
+      event: 'ambassador_' + type,
+      ambassador_code: attribution.code,
+      product_category: payload.category || undefined,
+      venue: payload.venue || undefined,
+      event_label: payload.label || undefined,
+      destination_url: payload.url || undefined
+    });
   }
 
-  function trackVipEnquiry(venue, payload) {
-    var attribution = readAttribution();
-    var record = {
-      id: uuid(),
-      ambassadorCode: attribution ? attribution.code : null,
-      venue: venue,
-      preferredDate: payload.date,
-      guests: payload.guests,
-      customerName: payload.name,
-      createdAt: new Date().toISOString(),
-      enquiryStatus: 'new',
-      reservationStatus: 'pending',
-      commissionStatus: 'not_applicable'
-    };
-    try {
-      var log = JSON.parse(localStorage.getItem('cit_vip_enquiries') || '[]');
-      log.push(record);
-      localStorage.setItem('cit_vip_enquiries', JSON.stringify(log));
-    } catch (e) {}
-    track('vip_enquiry_click', { category: 'vip', venue: venue, label: 'VIP enquiry — ' + venue });
-    return record;
+  function trackVipEnquiry(venue) {
+    track('vip_enquiry', { category: 'vip', venue: venue, label: 'VIP enquiry — ' + venue });
   }
 
-  // Link generator: always places ?ref=CODE before the #hash so it survives.
+  // Always places ?ref=CODE before the #hash — the only ordering that
+  // survives on a hash-routed site.
   function buildLink(origin, code, opts) {
     opts = opts || {};
     var url = origin.replace(/\/$/, '') + '/?ref=' + encodeURIComponent(code);
@@ -168,7 +95,6 @@
     readAttribution: readAttribution,
     track: track,
     trackVipEnquiry: trackVipEnquiry,
-    buildLink: buildLink,
-    getVisitorId: getVisitorId
+    buildLink: buildLink
   };
 })(window);
