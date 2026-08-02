@@ -31,7 +31,6 @@ a{color:inherit}
 .card{background:#111118;border:1px solid rgba(255,255,255,.07);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;text-decoration:none;color:#fff;transition:border-color .2s,transform .2s}
 .card:hover{border-color:rgba(167,139,250,.4);transform:translateY(-2px)}
 .card .cimg{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:#0d0d13}
-.card .cimg.tcard{display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(167,139,250,.2),rgba(10,10,15,.95));font-size:14px;font-weight:800;letter-spacing:.02em;color:rgba(255,255,255,.6);text-align:center;padding:16px}
 .card .cbody{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
 .card h3{font-size:16px;font-weight:700}
 .card p{font-size:13px;color:rgba(255,255,255,.5);line-height:1.5}
@@ -135,6 +134,7 @@ header{position:sticky;top:0;z-index:1000;background:rgba(10,10,15,.9);backdrop-
     <a class="mlink" href="#boat-parties-s" onclick="closeMenu()" data-i18n="nav.boatParties">Boat Parties</a>
     <a class="mlink" href="#cruises-s" onclick="closeMenu()" data-i18n="nav.cruises">Boat Trips &amp; Cruises</a>
     <a class="mlink" href="#formentera-s" onclick="closeMenu()" data-i18n="nav.formentera">Formentera</a>
+    <a class="mlink" href="#ferries-s" onclick="closeMenu()" data-i18n="nav.ferries">Ferries</a>
     <a class="mlink" href="#watersports-s" onclick="closeMenu()" data-i18n="nav.watersports">Watersports</a>
     <a class="mlink" href="#activities-s" onclick="closeMenu()" data-i18n="nav.activities">Activities</a>
     <a class="mlink" href="#drinks" onclick="closeMenu()" data-i18n="nav.drinks">Drinks Packages</a>
@@ -342,22 +342,6 @@ header{position:sticky;top:0;z-index:1000;background:rgba(10,10,15,.9);backdrop-
         <img class="cimg" src="https://media.clubtickets.com/migrated/event/3f9fff1e-1555-4a8e-a628-5de62535560c.jpg" alt="Beach City Boat" loading="lazy" onerror="this.style.display='none'">
         <div class="cbody"><p class="tag" data-i18n="ferries.shuttle">Shuttle</p><h3>Beach City Boat</h3><span class="cta" data-i18n="cta.bookNow">Book Now →</span></div>
       </a>
-      <a class="card" href="https://www.clubtickets.com/formentera-day-trip/balearia/balearia?aff=CT184" target="_blank" rel="nofollow noopener" onclick="bellaTrack('ferries','Balearia')">
-        <div class="cimg tcard">Balearia</div>
-        <div class="cbody"><p class="tag" data-i18n="ferries.formentera">Ibiza → Formentera</p><h3>Balearia</h3><span class="cta" data-i18n="cta.bookNow">Book Now →</span></div>
-      </a>
-      <a class="card" href="https://www.clubtickets.com/formentera-day-trip/cruceros-portmany/formentera?aff=CT184" target="_blank" rel="nofollow noopener" onclick="bellaTrack('ferries','Cruceros Portmany')">
-        <div class="cimg tcard">Cruceros Portmany</div>
-        <div class="cbody"><p class="tag" data-i18n="ferries.sanAntonio">San Antonio → Formentera</p><h3>Cruceros Portmany</h3><span class="cta" data-i18n="cta.bookNow">Book Now →</span></div>
-      </a>
-      <a class="card" href="https://www.clubtickets.com/formentera-day-trip/santa-eularia-ferry/santa-eulalia-formentera-ferry?aff=CT184" target="_blank" rel="nofollow noopener" onclick="bellaTrack('ferries','Santa Eularia Ferry')">
-        <div class="cimg tcard">Santa Eularia Ferry</div>
-        <div class="cbody"><p class="tag" data-i18n="ferries.formentera">Ibiza → Formentera</p><h3>Santa Eularia Ferry</h3><span class="cta" data-i18n="cta.bookNow">Book Now →</span></div>
-      </a>
-      <a class="card" href="https://www.clubtickets.com/formentera-day-trip/barco-a-formentera-ulises-cat/ulises-cat-barco-a-formentera?aff=CT184" target="_blank" rel="nofollow noopener" onclick="bellaTrack('ferries','Ulises Cat')">
-        <div class="cimg tcard">Ulises Cat</div>
-        <div class="cbody"><p class="tag" data-i18n="ferries.formentera">Ibiza → Formentera</p><h3>Ulises Cat</h3><span class="cta" data-i18n="cta.bookNow">Book Now →</span></div>
-      </a>
     </div>
   </div>
 </section>
@@ -380,6 +364,10 @@ header{position:sticky;top:0;z-index:1000;background:rgba(10,10,15,.9);backdrop-
         <img class="cimg" src="https://media.clubtickets.com/migrated/event/03612668-f311-46e9-98b3-56da521471c7.jpg" alt="eSurf" loading="lazy" onerror="this.style.display='none'">
         <div class="cbody"><p class="tag" data-i18n="watersports.esurf">eSurf</p><h3>eSurf</h3><span class="cta" data-i18n="cta.bookNow">Book Now →</span></div>
       </a>
+      <a class="card" href="https://www.clubtickets.com/activities/enjoy-water-sports-jetski/enjoy-water-sports-jet-ski-tour?aff=CT184" target="_blank" rel="nofollow noopener" onclick="bellaTrack('watersports','Jet Ski Playa den Bossa')">
+        <img class="cimg" src="https://media.clubtickets.com/migrated/event/a8396945-e836-4cb9-877e-f9299c3a5272.jpg" alt="Jet Ski Playa d'en Bossa" loading="lazy" onerror="this.style.display='none'">
+        <div class="cbody"><p class="tag" data-i18n="watersports.jetski">Jet Ski</p><h3>Jet Ski Playa d'en Bossa</h3><span class="cta" data-i18n="cta.bookNow">Book Now →</span></div>
+      </a>
     </div>
   </div>
 </section>
@@ -401,6 +389,26 @@ header{position:sticky;top:0;z-index:1000;background:rgba(10,10,15,.9);backdrop-
       <a class="card" href="https://www.clubtickets.com/activities/excursiones/excursion-a-las-dalias-night-market?aff=CT184" target="_blank" rel="nofollow noopener" onclick="bellaTrack('activities','Las Dalias')">
         <img class="cimg" src="https://media.clubtickets.com/migrated/event/252678a2-ff07-402b-af11-7948cb3c779b.jpg" alt="Las Dalias Market" loading="lazy" onerror="this.style.display='none'">
         <div class="cbody"><p class="tag" data-i18n="activities.nightMarket">Night Market</p><h3>Las Dalias Market</h3><span class="cta" data-i18n="cta.bookNow">Book Now →</span></div>
+      </a>
+      <a class="card" href="https://www.clubtickets.com/activities/cova-de-can-marca/cova-de-can-marca?aff=CT184" target="_blank" rel="nofollow noopener" onclick="bellaTrack('activities','Can Marca Cave')">
+        <img class="cimg" src="https://media.clubtickets.com/migrated/event/d50c7416-bda1-4f1f-83c4-5049c9752b37.jpg" alt="Can Marca Cave" loading="lazy" onerror="this.style.display='none'">
+        <div class="cbody"><p class="tag" data-i18n="activities.cave">Cave</p><h3>Can Marca Cave</h3><span class="cta" data-i18n="cta.bookNow">Book Now →</span></div>
+      </a>
+      <a class="card" href="https://www.clubtickets.com/activities/emove-ibiza/quad-tour?aff=CT184" target="_blank" rel="nofollow noopener" onclick="bellaTrack('activities','Quad Tour')">
+        <img class="cimg" src="https://media.clubtickets.com/migrated/event/c2108f2c-dae1-4ea2-b71a-2aa36e015080.png" alt="Quad Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="cbody"><p class="tag" data-i18n="activities.tour">Tour</p><h3>Quad Tour</h3><span class="cta" data-i18n="cta.bookNow">Book Now →</span></div>
+      </a>
+      <a class="card" href="https://www.clubtickets.com/activities/emove-ibiza/vintage-car-tour?aff=CT184" target="_blank" rel="nofollow noopener" onclick="bellaTrack('activities','Vintage Car Tour')">
+        <img class="cimg" src="https://media.clubtickets.com/migrated/event/c8f09ebb-3771-4533-b2f5-ca604afea4c1.jpg" alt="Vintage Car Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="cbody"><p class="tag" data-i18n="activities.tour">Tour</p><h3>Vintage Car Tour</h3><span class="cta" data-i18n="cta.bookNow">Book Now →</span></div>
+      </a>
+      <a class="card" href="https://www.clubtickets.com/activities/excursiones/ibiza-bus-tour?aff=CT184" target="_blank" rel="nofollow noopener" onclick="bellaTrack('activities','Ibiza Bus Tour')">
+        <img class="cimg" src="https://media.clubtickets.com/migrated/event/811ef712-df0c-4eb2-b1e8-c36d9e6661aa.jpg" alt="Ibiza Bus Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="cbody"><p class="tag" data-i18n="activities.tour">Tour</p><h3>Ibiza Bus Tour</h3><span class="cta" data-i18n="cta.bookNow">Book Now →</span></div>
+      </a>
+      <a class="card" href="https://www.clubtickets.com/activities/bibo-park-ibiza/bibo-park-ibiza?aff=CT184" target="_blank" rel="nofollow noopener" onclick="bellaTrack('activities','BIBO Park Ibiza')">
+        <img class="cimg" src="https://media.clubtickets.com/migrated/event/63f840db-ea85-409c-8388-78c2558588e8.jpg" alt="BIBO Park Ibiza" loading="lazy" onerror="this.style.display='none'">
+        <div class="cbody"><p class="tag" data-i18n="activities.attraction">Attraction</p><h3>BIBO Park Ibiza</h3><span class="cta" data-i18n="cta.bookNow">Book Now →</span></div>
       </a>
     </div>
   </div>
@@ -478,7 +486,7 @@ header{position:sticky;top:0;z-index:1000;background:rgba(10,10,15,.9);backdrop-
 var I18N = {
 en:{
 "meta.title":"Ibiza Starts Here | Club Ibiza Tickets",
-"nav.backToSite":"← Club Ibiza Tickets","nav.exploreIbiza":"Explore Ibiza","nav.sections":"Sections","nav.clubs":"The Clubs","nav.moreClubs":"More Ibiza Clubs","nav.vip":"VIP Tables","nav.boatParties":"Boat Parties","nav.cruises":"Boat Trips & Cruises","nav.formentera":"Formentera","nav.watersports":"Watersports","nav.activities":"Activities","nav.drinks":"Drinks Packages","nav.contact":"Contact Bella","nav.getInTouch":"Get in Touch",
+"nav.backToSite":"← Club Ibiza Tickets","nav.exploreIbiza":"Explore Ibiza","nav.sections":"Sections","nav.clubs":"The Clubs","nav.moreClubs":"More Ibiza Clubs","nav.vip":"VIP Tables","nav.boatParties":"Boat Parties","nav.cruises":"Boat Trips & Cruises","nav.formentera":"Formentera","nav.ferries":"Ferries","nav.watersports":"Watersports","nav.activities":"Activities","nav.drinks":"Drinks Packages","nav.contact":"Contact Bella","nav.getInTouch":"Get in Touch",
 "hero.kicker":"Bella · Ibiza Insider","hero.h1":"Ibiza Starts Here","hero.sub":"Local recommendations from someone who actually lives it — the clubs, VIP tables and boat days I book for myself and my friends, all ready through Club Ibiza Tickets.",
 "clubs.kicker":"Where to Start","clubs.h2":"The Clubs","clubs.sub":"The full weekly programme at every major club on the island — see who's playing and book straight through.","clubs.cta":"See the full week →",
 "clubs.unvrs.tag":"#1 Club in the World · San Rafael","clubs.unvrs.desc":"The world's first hyperclub — a different headliner every night of the week, from Tiësto to Carl Cox.",
@@ -492,9 +500,9 @@ en:{
 "boatParties.kicker":"Boat Parties","boatParties.h2":"Music on the Water","boatParties.sub":"The same energy as a club night, just with the sun instead of strobe lights.","boatParties.tag":"Party","boatParties.desc":"The island's original and best-known boat party.",
 "cruises.kicker":"Boat Trips & Cruises","cruises.h2":"A Day on the Water","cruises.sub":"Swimming stops, scenic coastline and a slower pace — the calmer side of the sea.","cruises.daytime":"Daytime","cruises.sunset":"Sunset","cruises.nature":"Nature","cruises.premium":"Premium","cruises.adventure":"Adventure","cruises.family":"Family",
 "formentera.kicker":"Formentera","formentera.h2":"Crystal-Clear Water, One Island Over","formentera.sub":"The easiest day trip from Ibiza — and one of the best beaches in the Mediterranean.","formentera.mostSold":"Most Sold","formentera.dayTrip":"Day Trip",
-"ferries.kicker":"Ferries","ferries.h2":"Getting Around by Sea","ferries.sub":"Scheduled boat shuttles along the coast — no booking a whole trip required.","ferries.shuttle":"Shuttle","ferries.formentera":"Ibiza → Formentera","ferries.sanAntonio":"San Antonio → Formentera",
+"ferries.kicker":"Ferries","ferries.h2":"Getting Around by Sea","ferries.sub":"Scheduled boat shuttles along the coast — no booking a whole trip required.","ferries.shuttle":"Shuttle",
 "watersports.kicker":"Watersports","watersports.h2":"Get on the Water","watersports.sub":"Jet skis, eFoils and eSurf — no experience needed.","watersports.jetski":"Jet Ski","watersports.efoil":"eFoil","watersports.esurf":"eSurf",
-"activities.kicker":"Activities","activities.h2":"Beyond the Beach","activities.sub":"Buggies, hot air balloons and the island's daytime side.","activities.tour":"Tour","activities.sunrise":"Sunrise","activities.nightMarket":"Night Market",
+"activities.kicker":"Activities","activities.h2":"Beyond the Beach","activities.sub":"Buggies, hot air balloons and the island's daytime side.","activities.tour":"Tour","activities.sunrise":"Sunrise","activities.nightMarket":"Night Market","activities.cave":"Cave","activities.attraction":"Attraction",
 "drinks.kicker":"Drinks Packages","drinks.h2":"Skip the Bar Queue","drinks.sub":"Pre-order a 5-drink package at any of the big three and save up to €30.","drinks.from":"From €99.99","drinks.cta":"See the Package →",
 "why.kicker":"Why Bella Recommends Club Ibiza Tickets","why.h2":"A Local Guide You Can Trust",
 "why.t1.h":"Personal recommendations","why.t1.p":"Everything on this page reflects what I'd tell a friend visiting Ibiza.",
@@ -510,7 +518,7 @@ en:{
 },
 pt:{
 "meta.title":"Ibiza Começa Aqui | Club Ibiza Tickets",
-"nav.backToSite":"← Club Ibiza Tickets","nav.exploreIbiza":"Explorar Ibiza","nav.sections":"Seções","nav.clubs":"As Baladas","nav.moreClubs":"Mais Baladas em Ibiza","nav.vip":"Mesas VIP","nav.boatParties":"Boat Parties","nav.cruises":"Passeios de Barco e Cruzeiros","nav.formentera":"Formentera","nav.watersports":"Esportes Aquáticos","nav.activities":"Atividades","nav.drinks":"Pacotes de Bebidas","nav.contact":"Falar com a Bella","nav.getInTouch":"Fale Comigo",
+"nav.backToSite":"← Club Ibiza Tickets","nav.exploreIbiza":"Explorar Ibiza","nav.sections":"Seções","nav.clubs":"As Baladas","nav.moreClubs":"Mais Baladas em Ibiza","nav.vip":"Mesas VIP","nav.boatParties":"Boat Parties","nav.cruises":"Passeios de Barco e Cruzeiros","nav.formentera":"Formentera","nav.ferries":"Ferries","nav.watersports":"Esportes Aquáticos","nav.activities":"Atividades","nav.drinks":"Pacotes de Bebidas","nav.contact":"Falar com a Bella","nav.getInTouch":"Fale Comigo",
 "hero.kicker":"Bella · Ibiza Insider","hero.h1":"Ibiza Começa Aqui","hero.sub":"Recomendações de quem vive isso de verdade — as baladas, mesas VIP e dias de barco que eu mesma reservo para mim e meus amigos, tudo pronto pela Club Ibiza Tickets.",
 "clubs.kicker":"Por Onde Começar","clubs.h2":"As Baladas","clubs.sub":"A programação semanal completa de cada grande balada da ilha — veja quem toca e reserve direto.","clubs.cta":"Ver a semana completa →",
 "clubs.unvrs.tag":"#1 Clube do Mundo · San Rafael","clubs.unvrs.desc":"O primeiro hyperclub do mundo — um headliner diferente todas as noites da semana, de Tiësto a Carl Cox.",
@@ -524,9 +532,9 @@ pt:{
 "boatParties.kicker":"Boat Parties","boatParties.h2":"Música em Cima da Água","boatParties.sub":"A mesma energia de uma balada, só que com sol em vez de luz estroboscópica.","boatParties.tag":"Festa","boatParties.desc":"A boat party original e mais conhecida da ilha.",
 "cruises.kicker":"Passeios de Barco e Cruzeiros","cruises.h2":"Um Dia em Cima da Água","cruises.sub":"Paradas para nadar, costa cênica e um ritmo mais tranquilo — o lado calmo do mar.","cruises.daytime":"Diurno","cruises.sunset":"Pôr do Sol","cruises.nature":"Natureza","cruises.premium":"Premium","cruises.adventure":"Aventura","cruises.family":"Família",
 "formentera.kicker":"Formentera","formentera.h2":"Água Cristalina, a Uma Ilha de Distância","formentera.sub":"O passeio de um dia mais fácil a partir de Ibiza — e uma das melhores praias do Mediterrâneo.","formentera.mostSold":"Mais Vendido","formentera.dayTrip":"Bate-Volta",
-"ferries.kicker":"Ferries","ferries.h2":"Se Locomovendo pelo Mar","ferries.sub":"Barcos com horário fixo ao longo da costa — sem precisar reservar um passeio inteiro.","ferries.shuttle":"Shuttle","ferries.formentera":"Ibiza → Formentera","ferries.sanAntonio":"San Antonio → Formentera",
+"ferries.kicker":"Ferries","ferries.h2":"Se Locomovendo pelo Mar","ferries.sub":"Barcos com horário fixo ao longo da costa — sem precisar reservar um passeio inteiro.","ferries.shuttle":"Shuttle",
 "watersports.kicker":"Esportes Aquáticos","watersports.h2":"Entre na Água","watersports.sub":"Jet ski, eFoil e eSurf — sem precisar de experiência.","watersports.jetski":"Jet Ski","watersports.efoil":"eFoil","watersports.esurf":"eSurf",
-"activities.kicker":"Atividades","activities.h2":"Além da Praia","activities.sub":"Buggys, balões de ar quente e o lado diurno da ilha.","activities.tour":"Passeio","activities.sunrise":"Nascer do Sol","activities.nightMarket":"Feira Noturna",
+"activities.kicker":"Atividades","activities.h2":"Além da Praia","activities.sub":"Buggys, balões de ar quente e o lado diurno da ilha.","activities.tour":"Passeio","activities.sunrise":"Nascer do Sol","activities.nightMarket":"Feira Noturna","activities.cave":"Gruta","activities.attraction":"Atração",
 "drinks.kicker":"Pacotes de Bebidas","drinks.h2":"Pule a Fila do Bar","drinks.sub":"Pré-compre um pacote de 5 drinks em qualquer uma das três grandes baladas e economize até €30.","drinks.from":"A partir de €99,99","drinks.cta":"Ver o Pacote →",
 "why.kicker":"Por Que a Bella Recomenda a Club Ibiza Tickets","why.h2":"Um Guia Local em Quem Você Pode Confiar",
 "why.t1.h":"Recomendações pessoais","why.t1.p":"Tudo nesta página é o que eu diria para uma amiga visitando Ibiza.",
@@ -542,7 +550,7 @@ pt:{
 },
 es:{
 "meta.title":"Ibiza Empieza Aquí | Club Ibiza Tickets",
-"nav.backToSite":"← Club Ibiza Tickets","nav.exploreIbiza":"Explorar Ibiza","nav.sections":"Secciones","nav.clubs":"Las Discotecas","nav.moreClubs":"Más Discotecas de Ibiza","nav.vip":"Mesas VIP","nav.boatParties":"Boat Parties","nav.cruises":"Excursiones y Cruceros en Barco","nav.formentera":"Formentera","nav.watersports":"Deportes Acuáticos","nav.activities":"Actividades","nav.drinks":"Packs de Bebidas","nav.contact":"Contactar a Bella","nav.getInTouch":"Contacto",
+"nav.backToSite":"← Club Ibiza Tickets","nav.exploreIbiza":"Explorar Ibiza","nav.sections":"Secciones","nav.clubs":"Las Discotecas","nav.moreClubs":"Más Discotecas de Ibiza","nav.vip":"Mesas VIP","nav.boatParties":"Boat Parties","nav.cruises":"Excursiones y Cruceros en Barco","nav.formentera":"Formentera","nav.ferries":"Ferries","nav.watersports":"Deportes Acuáticos","nav.activities":"Actividades","nav.drinks":"Packs de Bebidas","nav.contact":"Contactar a Bella","nav.getInTouch":"Contacto",
 "hero.kicker":"Bella · Ibiza Insider","hero.h1":"Ibiza Empieza Aquí","hero.sub":"Recomendaciones de alguien que realmente lo vive — las discotecas, mesas VIP y días en barco que reservo para mí y mis amigos, todo listo a través de Club Ibiza Tickets.",
 "clubs.kicker":"Por Dónde Empezar","clubs.h2":"Las Discotecas","clubs.sub":"La programación semanal completa de cada gran discoteca de la isla — mira quién pincha y reserva directamente.","clubs.cta":"Ver la semana completa →",
 "clubs.unvrs.tag":"#1 Club del Mundo · San Rafael","clubs.unvrs.desc":"El primer hyperclub del mundo — un cabeza de cartel distinto cada noche de la semana, de Tiësto a Carl Cox.",
@@ -556,9 +564,9 @@ es:{
 "boatParties.kicker":"Boat Parties","boatParties.h2":"Música Sobre el Agua","boatParties.sub":"La misma energía que una noche de discoteca, pero con sol en lugar de luces estroboscópicas.","boatParties.tag":"Fiesta","boatParties.desc":"La boat party original y más conocida de la isla.",
 "cruises.kicker":"Excursiones y Cruceros en Barco","cruises.h2":"Un Día en el Agua","cruises.sub":"Paradas para nadar, costa escénica y un ritmo más tranquilo — el lado calmado del mar.","cruises.daytime":"Diurno","cruises.sunset":"Atardecer","cruises.nature":"Naturaleza","cruises.premium":"Premium","cruises.adventure":"Aventura","cruises.family":"Familiar",
 "formentera.kicker":"Formentera","formentera.h2":"Agua Cristalina, a Una Isla de Distancia","formentera.sub":"La excursión de un día más fácil desde Ibiza — y una de las mejores playas del Mediterráneo.","formentera.mostSold":"Más Vendido","formentera.dayTrip":"Excursión de un Día",
-"ferries.kicker":"Ferries","ferries.h2":"Moverse por Mar","ferries.sub":"Barcos con horario fijo a lo largo de la costa — sin reservar una excursión completa.","ferries.shuttle":"Shuttle","ferries.formentera":"Ibiza → Formentera","ferries.sanAntonio":"San Antonio → Formentera",
+"ferries.kicker":"Ferries","ferries.h2":"Moverse por Mar","ferries.sub":"Barcos con horario fijo a lo largo de la costa — sin reservar una excursión completa.","ferries.shuttle":"Shuttle",
 "watersports.kicker":"Deportes Acuáticos","watersports.h2":"Métete en el Agua","watersports.sub":"Motos de agua, eFoil y eSurf — sin experiencia necesaria.","watersports.jetski":"Moto de Agua","watersports.efoil":"eFoil","watersports.esurf":"eSurf",
-"activities.kicker":"Actividades","activities.h2":"Más Allá de la Playa","activities.sub":"Buggies, globos aerostáticos y el lado diurno de la isla.","activities.tour":"Tour","activities.sunrise":"Amanecer","activities.nightMarket":"Mercadillo Nocturno",
+"activities.kicker":"Actividades","activities.h2":"Más Allá de la Playa","activities.sub":"Buggies, globos aerostáticos y el lado diurno de la isla.","activities.tour":"Tour","activities.sunrise":"Amanecer","activities.nightMarket":"Mercadillo Nocturno","activities.cave":"Cueva","activities.attraction":"Atracción",
 "drinks.kicker":"Packs de Bebidas","drinks.h2":"Sáltate la Cola de la Barra","drinks.sub":"Reserva un pack de 5 bebidas en cualquiera de las tres grandes y ahorra hasta 30€.","drinks.from":"Desde 99,99€","drinks.cta":"Ver el Pack →",
 "why.kicker":"Por Qué Bella Recomienda Club Ibiza Tickets","why.h2":"Una Guía Local de Confianza",
 "why.t1.h":"Recomendaciones personales","why.t1.p":"Todo en esta página es lo que le diría a una amiga que visita Ibiza.",
