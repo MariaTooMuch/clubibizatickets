@@ -29,9 +29,10 @@
     return map[slug] || null;
   }
 
-  // Capture attribution from: visiting /ambassadors/{code}/ directly, or any
-  // page with ?ref=CODE in the query string (placed before the #hash so it
-  // always survives — e.g. /?ref=BELLA01#unvrs).
+  // Capture attribution from: visiting /ibiza-insiders/{slug}/ directly
+  // (or the legacy /ambassadors/{slug}/ path, kept for old shared links),
+  // or any page with ?ref=CODE in the query string (placed before the
+  // #hash so it always survives — e.g. /?ref=BELLA01#unvrs).
   function captureAttribution(explicitCode) {
     var code = explicitCode || null;
     if (!code) {
@@ -39,7 +40,7 @@
       code = params.get('ref');
     }
     if (!code) {
-      var m = global.location.pathname.match(/\/ambassadors\/([a-z0-9-]+)\/?/i);
+      var m = global.location.pathname.match(/\/(?:ibiza-insiders|ambassadors)\/([a-z0-9-]+)\/?/i);
       if (m) code = ambassadorCodeBySlug(m[1]);
     }
     if (!code) return readAttribution();
