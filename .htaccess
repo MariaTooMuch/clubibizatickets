@@ -1,2 +1,18 @@
 RewriteEngine On
+
+# Canonical domain: force non-www (avoids duplicate-content indexing under both hosts)
+RewriteCond %{HTTP_HOST} ^www\.clubibizatickets\.com$ [NC]
+RewriteRule ^(.*)$ https://clubibizatickets.com/$1 [R=301,L]
+
+# Legacy Ambassador URL -> current Ibiza Insiders URL
 RewriteRule ^ambassadors/bella/?$ /ibiza-insiders/bella/ [R=301,L]
+
+# Legacy page URLs from an earlier site structure -> current single-page anchors
+# (these are showing up as 404s in Search Console; redirecting recovers the link equity
+# and stops Google from repeatedly hitting dead ends)
+RewriteRule ^unvrs/?$ /#unvrs [R=301,L]
+RewriteRule ^hi-ibiza/?$ /#hi [R=301,L]
+RewriteRule ^ushuaia/?$ /#ushuaia [R=301,L]
+RewriteRule ^about/?$ /#about [R=301,L]
+RewriteRule ^blog/?$ /#blog [R=301,L]
+RewriteRule ^blog/.+$ /#blog [R=301,L]
