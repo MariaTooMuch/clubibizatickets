@@ -60,22 +60,26 @@
     return existing;
   }
 
-  // Pushes a tracked event into the existing GTM dataLayer. Clicks are
-  // never sales — confirmed tickets are reconciled manually from
-  // ClubTickets reports, kept entirely separate from this event stream.
+  // Pushes a tracked event into the GTM dataLayer and, when gtag.js is
+  // loaded, straight to GA4 too (so it shows up in standard GA4 reports
+  // without needing a custom tag built inside GTM). Clicks are never
+  // sales — confirmed tickets are reconciled manually from ClubTickets
+  // reports, kept entirely separate from this event stream.
   function track(type, payload) {
     payload = payload || {};
     var attribution = readAttribution();
     if (!attribution) return;
-    global.dataLayer = global.dataLayer || [];
-    global.dataLayer.push({
-      event: 'ambassador_' + type,
+    var eventName = 'ambassador_' + type;
+    var eventData = {
       ambassador_code: attribution.code,
       product_category: payload.category || undefined,
       venue: payload.venue || undefined,
       event_label: payload.label || undefined,
       destination_url: payload.url || undefined
-    });
+    };
+    global.dataLayer = global.dataLayer || [];
+    global.dataLayer.push(Object.assign({ event: eventName }, eventData));
+    if (typeof global.gtag === 'function') global.gtag('event', eventName, eventData);
   }
 
   function trackVipEnquiry(venue) {

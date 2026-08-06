@@ -1,25 +1,50 @@
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HP9Q4B9PRQ"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-HP9Q4B9PRQ');
+</script>
+<!-- End Google Analytics 4 -->
+
 <script src="/assets/cit-tracking.js"></script>
 <script>CIT.captureAttribution();</script>
 <!-- Google Tag Manager -->
 <script>window.dataLayer = window.dataLayer || [];
-(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-52M8XHPV');</script>
 <!-- End Google Tag Manager -->
 
 <script>
-// Club Ibiza Tickets -- GTM event tracking layer
+// Club Ibiza Tickets -- GTM/GA4 event tracking layer
 window.dataLayer = window.dataLayer || [];
+
+function citAmbassadorCode(){
+  try {
+    var a = window.CIT && CIT.readAttribution();
+    return a ? a.code : undefined;
+  } catch(e) { return undefined; }
+}
+
+function citFireEvent(name, params){
+  params = params || {};
+  var code = citAmbassadorCode();
+  if (code) params.ambassador_code = code;
+  dataLayer.push(Object.assign({event: name}, params));
+  if (window.gtag) gtag('event', name, params);
+}
 
 document.addEventListener('click', function(e){
   var link = e.target.closest('a');
   if (link && link.href) {
     var href = link.href;
     if (href.indexOf('clubtickets.com') !== -1) {
-      dataLayer.push({event:'buy_tickets_click', link_url:href, link_text:(link.textContent||'').trim()});
+      citFireEvent('buy_tickets_click', {link_url:href, link_text:(link.textContent||'').trim()});
     } else if (href.indexOf('wa.me') !== -1) {
-      dataLayer.push({event:'contact_click', contact_method:'whatsapp', link_url:href});
+      citFireEvent('contact_click', {contact_method:'whatsapp', link_url:href});
     } else if (href.indexOf('clubibizatickets.com') === -1 && href.indexOf('mailto:') === -1 && href.charAt(0) !== '#') {
       try {
-        dataLayer.push({event:'outbound_click', link_url:href, link_domain:new URL(href).hostname});
+        citFireEvent('outbound_click', {link_url:href, link_domain:new URL(href).hostname});
       } catch(err) {}
     }
   }
@@ -27,12 +52,12 @@ document.addEventListener('click', function(e){
   if (btn) {
     var t = (btn.textContent||'').trim();
     if (t.indexOf('Send via WhatsApp') !== -1 || t.indexOf('Send by email') !== -1) {
-      dataLayer.push({event:'vip_table_request', method: t.indexOf('WhatsApp') !== -1 ? 'whatsapp' : 'email'});
+      citFireEvent('vip_table_request', {method: t.indexOf('WhatsApp') !== -1 ? 'whatsapp' : 'email'});
     } else if (t.indexOf('Buy Drink Package') !== -1) {
-      dataLayer.push({event:'drink_package_click'});
+      citFireEvent('drink_package_click', {});
     }
   }
 });
 // Ready hook for future checkout/purchase events:
-// dataLayer.push({event:'purchase', transaction_id:'...', value:..., currency:'EUR', items:[...]});
+// citFireEvent('purchase', {transaction_id:'...', value:..., currency:'EUR'});
 </script>
